@@ -1,0 +1,22 @@
+@use "./variables" as *;
+
+@mixin desktop {
+  @media (min-width: $desktopWidth) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: $tabletWidth) {
+    @content;
+  }
+}
+
+@keyframes disappear-ele {
+  0% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
