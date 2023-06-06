@@ -8,7 +8,7 @@ interface Props {
 
 export async function DELETE(req: Request, { params }: Props) {
   try {
-    const id = params.id;
+    const { id } = params;
     if (id) {
       await fetch(`http://localhost:8000/todos/${id}`, {
         method: "DELETE",

@@ -8,3 +8,12 @@
 .header {
   background-color: red;
 }
+
+.aboutLink {
+  text-decoration: none;
+  color: red;
+}
+
+.aboutLink:hover {
+  color: green;
+}

@@ -1,5 +1,4 @@
 import { NextResponse } from "next/server";
-import { readFileSync, writeFileSync } from "fs";
 export async function GET() {
   try {
     const res = await fetch("http://localhost:8000/todos", {

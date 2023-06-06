@@ -8,7 +8,9 @@ export default function Home() {
       <ImageComponent />
       <h1>Hello world</h1>
       <div>
-        <Link href={"/about"}>About Page</Link>
+        <Link className={styles.aboutLink} href={"/about"}>
+          About Page
+        </Link>
       </div>
       <div>
         <Link href={"/users"}>Users Page</Link>

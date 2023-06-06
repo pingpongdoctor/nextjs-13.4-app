@@ -1,7 +1,9 @@
 "use client";
 
+import React from "react";
+
 interface Props {
-  btnOnClickFunction?: () => void;
+  btnOnClickFunction?: (e: React.MouseEvent<HTMLButtonElement>) => void;
   btnContent: string;
   btnClassName: string;
 }

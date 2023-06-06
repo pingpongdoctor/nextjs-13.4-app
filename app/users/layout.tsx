@@ -1,15 +1,23 @@
-import styles from "./page.module.scss";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "UserPage",
+  title: {
+    absolute: "User Page",
+  },
+  alternates: {
+    canonical: "/users",
+    languages: {
+      "en-CA": "en-CA/users",
+    },
+  },
 };
 
-export default function UserLayout({
-  children,
-}: {
+interface Props {
   children: React.ReactNode;
-}) {
+  specialUser: React.ReactNode;
+}
+
+export default function UserLayout({ children, specialUser }: Props) {
   return (
     <>
       <div>
