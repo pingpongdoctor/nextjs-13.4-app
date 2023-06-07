@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 
 interface Props {
   children: React.ReactNode;
@@ -13,11 +13,26 @@ export default function Model({ children }: Props) {
   const smallDivEle = useRef(null);
 
   const backFunc = function (e: React.MouseEvent<HTMLDivElement>) {
-    if (e.target === bigDivEle.current || e.target === smallDivEle.current) {
-      console.log(e.target);
+    if (e.target === bigDivEle.current) {
       router.back();
     }
   };
+
+  useEffect(() => {
+    document.addEventListener("keydown", (e: KeyboardEvent) => {
+      if (e.key === "Escape" && bigDivEle.current) {
+        router.back();
+      }
+    });
+
+    return () =>
+      document.removeEventListener("keydown", (e: KeyboardEvent) => {
+        if (e.key === "Escape" && bigDivEle.current) {
+          router.back();
+        }
+      });
+  }, []);
+
   return (
     <div
       ref={bigDivEle}
