@@ -6,9 +6,9 @@ export default function BackHomeBtn() {
   const router = useRouter();
   return (
     <ButtonComponent
-      btnContent="Back Home"
+      btnContent="Back"
       btnOnClickFunction={() => {
-        router.push("/");
+        router.back();
       }}
       btnClassName="button"
     />

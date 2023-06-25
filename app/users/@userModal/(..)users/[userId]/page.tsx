@@ -64,27 +64,29 @@ export default async function UserPage({ params: { userId } }: Props) {
   }
 
   return (
-    <Modal>
-      <h1>This title is sent first to the client</h1>
-      {/* USE SUSPENSE TO IMPLEMENT STREAMING */}
-      {/* SEND THE USER INFORMATION CHUNK TO THE CLIENT FIRST WHILE WAITING FOR THE TEACHERS FULLY LOADED AND FOR THE TEACHER COMPONENT TO BE SENT TO THE CLIENT */}
+    <div>
+      <Modal>
+        <h1>This title is sent first to the client</h1>
+        {/* USE SUSPENSE TO IMPLEMENT STREAMING */}
+        {/* SEND THE USER INFORMATION CHUNK TO THE CLIENT FIRST WHILE WAITING FOR THE TEACHERS FULLY LOADED AND FOR THE TEACHER COMPONENT TO BE SENT TO THE CLIENT */}
 
-      <h1>
-        The chunks below are sent to client for React hydration after their data
-        is fully loaded
-      </h1>
-      <Suspense fallback={<h2>Loading User...</h2>}>
-        {/* @ts-expect-error Async Server Component */}
-        <SingleUser userPromise={singleUser} />
-      </Suspense>
+        <h1>
+          The chunks below are sent to client for React hydration after their
+          data is fully loaded
+        </h1>
+        <Suspense fallback={<h2>Loading User...</h2>}>
+          {/* @ts-expect-error Async Server Component */}
+          <SingleUser userPromise={singleUser} />
+        </Suspense>
 
-      <Suspense fallback={<h2>Loading Teachers...</h2>}>
-        {/* @ts-expect-error Async Server Component */}
-        <TeachersOfUser teachersPromise={teachers} />
-      </Suspense>
-      <BackHomeBtn />
-      {/* TRY TO BULD SMALL CLIENT COMPONENTS SO THAT WE CAN USE SERVER COMPONENTS MOSTLY */}
-      {/* CLIENT COMPONENTS ALLOW ADDING WEBSITE INTERACTIVITY LIKE HOOK AND EVENT */}
-    </Modal>
+        <Suspense fallback={<h2>Loading Teachers...</h2>}>
+          {/* @ts-expect-error Async Server Component */}
+          <TeachersOfUser teachersPromise={teachers} />
+        </Suspense>
+
+        {/* TRY TO BULD SMALL CLIENT COMPONENTS SO THAT WE CAN USE SERVER COMPONENTS MOSTLY */}
+        {/* CLIENT COMPONENTS ALLOW ADDING WEBSITE INTERACTIVITY LIKE HOOK AND EVENT */}
+      </Modal>
+    </div>
   );
 }

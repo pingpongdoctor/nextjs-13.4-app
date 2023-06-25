@@ -1,5 +1,5 @@
 import { Sulphur_Point, Roboto, Rubik } from "next/font/google";
-// import localFont from "next/font/local";s
+// import localFont from "next/font/local";
 
 //SET UP SULPHURE POINT GOOGLE FONT
 const sulphurPoint = Sulphur_Point({
@@ -31,6 +31,7 @@ const rubik = Rubik({
 // const myFont = localFont({
 //   src: "./my-font.woff2",
 //   display: "swap",
+//   variable: "--font-local",
 // });
 
 //LOCAL FONT RELYING ON MULTIPLE FILES

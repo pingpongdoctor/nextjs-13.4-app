@@ -4,7 +4,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "http://localhost:3000";
 
   //WITH THE DYNAMIC URL
-  //const = await fetch all users
+  //const users = await fetch allUsers
   //const userUrls=users.map(user=>{return {url:`${baseUrl}/user.id`, lasModified:user.updatedAt}})
 
   return [

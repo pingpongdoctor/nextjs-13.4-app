@@ -16,7 +16,7 @@ export default function AddTodo() {
     e.preventDefault();
     if (name) {
       await handleAddTodo(name);
-      router.refresh();
+      router.push("/todos");
     }
   };
 

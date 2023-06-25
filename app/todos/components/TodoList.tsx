@@ -1,10 +1,10 @@
-import getTodos from "@/lib/getTodos";
 import Todo from "./Todo";
 
-export default async function TodoList() {
-  const todoData: Promise<Todo[]> = getTodos();
-  const todos = await todoData;
+interface Props {
+  todos: Todo[];
+}
 
+export default async function TodoList({ todos }: Props) {
   return (
     <div>
       <ul>

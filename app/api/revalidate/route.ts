@@ -5,11 +5,31 @@ import { NextResponse, NextRequest } from "next/server";
 export async function GET(req: NextRequest) {
   const tag = req.nextUrl.searchParams.get("tag");
   const key = req.nextUrl.searchParams.get("key");
+
   if (tag && key && key === process.env.MY_REVALIDATE_TOKEN) {
     revalidateTag(tag);
-    return NextResponse.json({
-      revalidate: true,
-      date: Date.now(),
-    });
+    return NextResponse.json(
+      JSON.stringify({
+        revalidate: true,
+        date: Date.now(),
+      }),
+      {
+        headers: { "Content-Type": "application/json" },
+        status: 200,
+        statusText: "success",
+      }
+    );
+  } else {
+    return NextResponse.json(
+      JSON.stringify({
+        revalidate: false,
+        data: Date.now(),
+      }),
+      {
+        headers: { "Content-Type": "application/json" },
+        status: 401,
+        statusText: "failed",
+      }
+    );
   }
 }

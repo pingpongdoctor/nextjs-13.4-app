@@ -14,6 +14,7 @@ export const metadata: Metadata = {
   verification: {
     google: "google-site-verification=123",
   },
+  // openGraph: { images: "/abc.png" },
 };
 
 //EVERYTHING IN THE MAIN LAYOUT FILE IS APPLIED TO THE WHOLE WEBSITE

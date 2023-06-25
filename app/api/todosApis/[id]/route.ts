@@ -18,7 +18,12 @@ export async function DELETE(req: Request, { params }: Props) {
       });
       return NextResponse.json({ message: "todo is deleted" });
     } else {
-      return NextResponse.json({ message: "id is required" });
+      return NextResponse.json(JSON.stringify({ message: "id is required" }), {
+        headers: {
+          "Content-Type": "application/json",
+        },
+        status: 401,
+      });
     }
   } catch (e) {
     console.log(e);

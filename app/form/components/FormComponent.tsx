@@ -21,7 +21,6 @@ export default function FormComponent() {
   const router = useRouter();
 
   async function handleSubmitTeacherInfor(e: FormEvent<HTMLFormElement>) {
-    console.log(process.env);
     e.preventDefault();
     if (name && id) {
       //POST A NEW TEACHER
